@@ -3,7 +3,7 @@
 //const BACKEND = 'http://localhost:8989';
 // Le backend est également déployé sur heroku
 // Attention : le chargement initial peut être un peu long...
-const BACKEND = 'https://springajax.herokuapp.com';
+const BACKEND = 'https://testappliazure.azurewebsites.net';
 
 /**
  * Faire un appel AJAX avec l'API fetch
@@ -20,7 +20,7 @@ async function doAjaxRequest(url, options) {
   const response = await fetch(url, options);
   // On récupère le résultat transmis en format JSON
   // 204 : NO-CONTENT
-  const result = response.status == 204 ? null : await response.json() ;
+  const result = response.status === 204 ? null : await response.json() ;
   // L'API a signalé une erreur, on lève une exception
   if (!response.ok) throw result;
   // Tout s'est bien passé, on renvoie le résultat
